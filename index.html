@@ -18,10 +18,82 @@
         place-items: center;
         font-family: "Comfortaa", sans-serif;
         color: #2020fa;
+        overflow: hidden;
+      }
+
+      h1 {
+        position: relative;
+        z-index: 1;
+      }
+
+      .atom {
+        position: fixed;
+        width: 13rem;
+        aspect-ratio: 1;
+        pointer-events: none;
+      }
+
+      .atom--top {
+        top: 8%;
+        left: 8%;
+      }
+
+      .atom--bottom {
+        right: 8%;
+        bottom: 8%;
+        transform: scale(0.72);
+      }
+
+      .nucleus {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1.25rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: #2020fa;
+        transform: translate(-50%, -50%);
+      }
+
+      .orbital {
+        position: absolute;
+        inset: 0;
+        border: 2px solid #1c1c1c;
+        border-radius: 50%;
+        animation: spin 7s linear infinite;
+      }
+
+      .orbital:nth-of-type(2) {
+        animation-direction: reverse;
+        animation-duration: 9s;
+        transform: rotate(60deg) scaleY(0.4);
+      }
+
+      .orbital:nth-of-type(3) {
+        animation-duration: 11s;
+        transform: rotate(120deg) scaleY(0.4);
+      }
+
+      @keyframes spin {
+        to {
+          rotate: 360deg;
+        }
       }
     </style>
   </head>
   <body>
     <h1>Hello, Isaiah.</h1>
+    <div class="atom atom--top" aria-hidden="true">
+      <span class="nucleus"></span>
+      <span class="orbital"></span>
+      <span class="orbital"></span>
+      <span class="orbital"></span>
+    </div>
+    <div class="atom atom--bottom" aria-hidden="true">
+      <span class="nucleus"></span>
+      <span class="orbital"></span>
+      <span class="orbital"></span>
+      <span class="orbital"></span>
+    </div>
   </body>
 </html>
